@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Vreeke | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--example script-->
+    <script>
+        if ('geolocation' in navigator) {
+            console.log('geolocation available');
+            navigator.geolocation.getCurrentPosition(async position => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = lon;
+
+                const data = { lat, lon };
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+
+                const response = await fetch('/api', options);
+                const json = await response.json();
+                console.log(json);
+            });
+        } else {
+            /*Geolocation was not available*/
+            console.log('geolocation not available');
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo">Ryan Vreeke</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#skills" class="navbar__links" id="skills-page">Skills</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#projects" class="navbar__links" id="projects-page">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#contact" class="navbar__links" id="contact-page">Contact
+                        Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Home Page Content-->
+    <div class="home" id="home">
+
+        <div class="header__content">
+            <h1>Ryan Vreeke</h1>
+            <p>CS Student @ The University Of Utah - </br> IT Support @ EHSL &
+                EHSEB Library</p>
+
+            <div class="content__links">
+                <a href="https://my.indeed.com/resume?hl=en&co=US&from=gnav-resume--myind" class="content__link"
+                    id="indeed-link">indeed</a>
+                <a href="mailto: rvreeke123@gmail.com" class="content__link" id="email-link">email</a>
+                <a href="https://github.com/Ryan-Vreeke" class="content__link" id="git-link">github</a>
+            </div>
+        </div>
+    </div>
+    <!--this is also just and example i am working on-->
+    <p class="example"> Lat: <span id="latitude"></span>&deg </br>
+        lon: <span id="longitude"></span>&deg;</p>
+    <!--About me-->
+    <div class="about" id="about">
+        <div class="institute__wrapper">
+            <div class="margin__outer"></div>
+            <img src="/images/UCS.jpg">
+            <div class="margin__block"></div>
+            <img src="/images/UofUHealth.png">
+            <div class="margin__outer"></div>
+        </div>
+        <div class="about__content">
+            <div class="image__backing">
+                <img src="/images/linux.png" class="about__image">
+            </div>
+            <div class="text__wrapper">
+
+                <h2>Ryan Vreeke</h2>
+                <h3>University of Utah, Computer Science Student </br></br></h3>
+                <p> I'm Graduating 2023 from the University of Utah's School of Engineering. My passion is Computer
+                    Science.
+                    My interests include software design and development, artificial intelligence, networking, web
+                    development, and parallel processing.</br></br></p>
+
+                <div class="edu__wrapper">
+                    <h2>Education</h2>
+                    <h3>University of Utah</h3>
+                    <div class="edu__list">
+                        <li>Bachelor of Science in Computer Science</li>
+                        <li>Participated in Engineers Without Borders activities</li>
+                        <li>Maintained Over 3.5</li>
+
+                    </div>
+                    <h3>Salt Lake Community College</h3>
+                    <div class="edu__list">
+                        <li>Associates of Science</li>
+                        <li>attained the honor roll</li>
+
+                    </div>
+                </div>
+
+                <div class="learn-more__wrapper">
+                    <h1>Learn more about my:</h1>
+                    <div class="button__wrapper">
+                        <div class="about__btn"><button><a href="#skills">Skills</a></button></div>
+                        <div class="about__btn"><button><a href="#projects">Projects</a></button></div>
+                    </div>
+                    <div class="button__wrapper">
+                        <div class="about__btn"><button>Work Experience</button></div>
+                        <div class="about__btn"><button id="download">Resume</button></div>
+                        <div class="about__btn"><button id="download">Cover Letter</button></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Skills page-->
+    <div class="skills" id="skills">
+        <h1>Skills</h1>
+        <div class="skills__wrapper">
+            <div class="skills__card">
+                <img src="/images/c-sharp.png">
+                <h2>C#</h2>
+                <p>I have experience making large scale windows forms and
+                    network applications with <span id="highlight-purple">C#</p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/html-5.png">
+                <h2>HTML</h2>
+                <p>My experience with <span id="highlight-yellow">HTML</span>
+                    consists of this website and a <span>web development</span>
+                    class at the U</p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/css-3.png">
+                <h2>CSS</h2>
+                <p>Using <span id="highlight-purple">CSS3</span> I created
+                    this website, and have attended a cource at the <span id="highlight-red">University of Utah</span>
+                </p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/c-.png" alt="">
+                <h2>C++</h2>
+                <p>I've Worked with <span id="highlight-red">C++</span> for
+                    a year and have completed multiple large scale projects</p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/mysql.png">
+                <h2>MySQL</h2>
+                <p>Using MariaDB, I created a Lesson Management System
+                    (LMS).
+                    To do this I created and used an <span id="highlight-purple">Relationship (ER) diagram</span>,
+                    <span id="highlight-red">C#</span>, and <span id="highlight-yellow">Relational Algebra</span>.
+                </p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/computer.png">
+                <h2>Networking</h2>
+                <p>While taking a course at the <span id="highlight-red">University
+                        of Utah</span>, I gained experience doing <span id="highlight-purple">application-level socket
+                        programming</span></p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/qt.png">
+                <h2>Qt</h2>
+                <p>I used Qt for a year to develop large scale GUI projects
+                    in a <span id="highlight-red">Agile</span> work
+                    environment</p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+            <div class="skills__card">
+                <img src="/images/linux.png">
+                <h2>Linux</h2>
+                <p>2 years of experience in <span id="highlight-purple">Linux</span>.
+                    Made a custom <span id="highlight-purple">Linux</span> distribution with <span
+                        id="highlight-green">ArchLinux</span> as its core
+                </p>
+                <div class="skills__btn"><button>See Projects</button></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Projects-->
+    <div class="projects" id="projects">
+        <h1>Projects</h1>
+        <div class="project__scrollmenu">
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+
+            </a>
+            <a href="#p1" class="projects__card">
+                <div class="image"></div>
+                <div class="project__text">
+                    <h1>Project 1</h1>
+                    <h2>Python</h2>
+
+                    <p>this project is a python test that will show you you star sign. I think is was very nice</p>
+                </div>
+            </a>
+
+        </div>
+        <div class="project__button"> <a href="/projects.html"><button>See More</button></a></div>
+    </div>
+
+    <!--Contact Me-->
+
+    <div class="contact" id="contact">
+        <h1>Contact Me</h1>
+        <h2>Email: <a href="#new">rvreeke123@gmail.com</a> || Phone: <a href="#new">801-608-3517</a></h2>
+        <div class="input__wrapper">
+            <div class="input-left">
+                <input id="name" class="form-control" type="text" placeholder="Your Name *" required=""
+                    data-validation-required-message="Please enter your name." aria-invalid="false">
+                <input id="email" class="form-control" type="text" placeholder="Your Email *" required=""
+                    data-validation-required-message="Please enter your name." aria-invalid="false">
+                <input id="phone" class="form-control" type="text" placeholder="Your Phone" required=""
+                    data-validation-required-message="Please enter your name." aria-invalid="false">
+            </div>
+
+            <textarea id="message" class="form-control" placeholder="Your Message *" required=""
+                data-validation-required-message="Please enter a message." aria-invalid="true"></textarea>
+
+        </div>
+        <div class="contact__btn"><button id="contact-send">Send Message</button></div>
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <p>Author: Ryan Vreeke 2022</p>
+        <a href="https://github.com/Ryan-Vreeke"><img src="/images/github.png" id="github"></a>
+        <a href="mailto: rvreeke123@gmail.com"><img src="/images/email.png" id="email"></a>
+        <a href="https://www.linkedin.com/in/ryan-vreeke-b2071815a"><img src="images/linkedin.png"></a>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

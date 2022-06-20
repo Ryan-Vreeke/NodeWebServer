@@ -1,0 +1,29 @@
+body {
+    background-color: #000;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.message__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+}
+
+.root {
+    padding: 1rem;
+    display: flex;
+    justify-self: start;
+    gap: 2rem;
+}
+
+.root div {
+    font-size: 1rem;
+    color: #fff;
+}

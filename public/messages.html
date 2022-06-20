@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+</head>
+
+<body>
+    <h1>Messages</h1>
+    <script>
+        getData();
+        async function getData() {
+            const response = await fetch('/message')
+            const data = await response.json();
+            const mWrapper = document.createElement('div');
+            mWrapper.className = 'message__wrapper';
+            for (item of data) {
+                const root = document.createElement('div');
+                root.className = 'root';
+                const message = document.createElement('div');
+                const date = document.createElement('div');
+                const name = document.createElement('div');
+
+                message.textContent = `Message: ${item.message}`;
+                name.textContent = `Sender: ${item.name}`;
+                const dateString = new Date(item.timestamp).toLocaleString();
+                date.textContent = dateString;
+
+                root.append(name, message, date);
+                mWrapper.append(root);
+            }
+
+            document.body.append(mWrapper);
+        }
+    </script>
+
+
+
+    <link rel="stylesheet" href="message.css">
+</body>
+
+</html>
