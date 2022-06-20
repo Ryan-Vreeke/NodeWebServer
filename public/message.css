@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: #2e3440;
     display: flex;
     color: #fff;
     align-items: center;
@@ -7,23 +7,61 @@ body {
     flex-direction: column;
 }
 
-.message__wrapper {
+.table__wrapper{
+    width: 90%;
+    border-style: solid;
+    border-color: #4c566A;
+    border-radius: 4px;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 10;
+    text-indent: initial;
+    background-color: #e5e9f0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #000;
-    justify-content: center;
-    align-items: center;
 }
 
-.root {
-    padding: 1rem;
-    display: flex;
-    justify-self: start;
-    gap: 2rem;
+#table-body {
+    background-color: #e5e9f0;
+    display: table-row-group;
+    vertical-align: middle;
+    color:#2e3440
 }
 
-.root div {
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    background-color: #e5e9f0;
+}
+
+tr:nth-child(odd) {
+    background-color: #d8dee9;
+}
+
+th,
+td {
+    text-align: start;
+    text-overflow: clip;
+}
+
+.name {
+    padding: 20px 0;
+    padding-left: 20px;
     font-size: 1rem;
-    color: #fff;
+}
+
+.message {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1rem;
+    text-align: start;
+    text-overflow: clip;
+
+}
+
+.date {
+    padding-right: 20px;
 }

@@ -15,29 +15,42 @@
         async function getData() {
             const response = await fetch('/message')
             const data = await response.json();
-            const mWrapper = document.createElement('div');
-            mWrapper.className = 'message__wrapper';
-            for (item of data) {
-                const root = document.createElement('div');
-                root.className = 'root';
-                const message = document.createElement('div');
-                const date = document.createElement('div');
-                const name = document.createElement('div');
+            const table = document.getElementById('table-body');
 
-                message.textContent = `Message: ${item.message}`;
-                name.textContent = `Sender: ${item.name}`;
+            for (item of data) {
+                const root = document.createElement('tr');
+                const message = document.createElement('td');
+                const date = document.createElement('td');
+                const name = document.createElement('td');
+
+                message.textContent = `${item.message}`;
+                name.textContent = `${item.name}`;
                 const dateString = new Date(item.timestamp).toLocaleString();
                 date.textContent = dateString;
 
+                message.className = 'message';
+                name.className = 'name';
+                date.className = 'date';
+
                 root.append(name, message, date);
-                mWrapper.append(root);
+                table.append(root);
             }
 
-            document.body.append(mWrapper);
         }
     </script>
 
+    <div class="table__wrapper">
 
+        <table class="message__wrapper" id="message--wrapper">
+            <tbody id="table-body">
+                <tr>
+                    <th class="name">Sender</th>
+                    <th class="message">Message</th>
+                    <th class="date">Date</th>
+                </tr>
+            </tbody>
+    </div>
+    </div>
 
     <link rel="stylesheet" href="message.css">
 </body>
