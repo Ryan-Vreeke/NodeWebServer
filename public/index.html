@@ -13,13 +13,9 @@
     <!--example script-->
     <script>
         if ('geolocation' in navigator) {
-            console.log('geolocation available');
             navigator.geolocation.getCurrentPosition(async position => {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
-
-                document.getElementById('latitude').textContent = lat;
-                document.getElementById('longitude').textContent = lon;
 
                 const data = { lat, lon };
                 const options = {
@@ -36,7 +32,6 @@
             });
         } else {
             /*Geolocation was not available*/
-            console.log('geolocation not available');
         }
     </script>
 
@@ -82,9 +77,6 @@
             </div>
         </div>
     </div>
-    <!--this is also just and example i am working on-->
-    <p class="example"> Lat: <span id="latitude"></span>&deg </br>
-        lon: <span id="longitude"></span>&deg;</p>
     <!--About me-->
     <div class="about" id="about">
         <div class="institute__wrapper">
@@ -308,7 +300,7 @@
             </a>
 
         </div>
-        <div class="project__button"> <a href="/projects.html"><button>See More</button></a></div>
+        <div class="project__button"> <a href="/projects"><button>See More</button></a></div>
     </div>
 
     <!--Contact Me-->
