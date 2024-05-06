@@ -18,7 +18,7 @@ app.listen(3000, () => console.log('listening at port 3000'));
 const con = mysql.createConnection({
     host: 'localhost',
     user: 'localnode',
-    password: 'rvwowwee123',
+    password: '********',
     database: 'portfolio'
 });
 
